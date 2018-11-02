@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// Components that I am using to display different things
 import Titles from './components/Titles'
 import Form from './components/Form'
 import Weather from './components/Weather'
@@ -30,7 +30,7 @@ class App extends React.Component {
 		console.log(data)
 		this.setState({
 			city: data.name,
-			temperature: data.main.temp - 273.15,
+			temperature: (data.main.temp - 273.15).toFixed(2),
 			country: data.sys.country,
 			humidity: data.main.humidity,
 			description: data.weather[0].description,
@@ -39,11 +39,14 @@ class App extends React.Component {
 	}
   render() {
     return(
-      <div>
-        <Titles />
-        <Form 
-        	getWeather = {this.getWeather}
-        />
+      <div className='container col-md-12'>
+        <div className='col-md-6'>
+	        <Titles />
+			<Form 
+	        	getWeather = {this.getWeather}
+	        />
+	    </div>
+        <div className='col-md-6'>
         <Weather
         	temperature={this.state.temperature}
         	city={this.state.city}
@@ -51,6 +54,8 @@ class App extends React.Component {
         	humidity={this.state.humidity}
         	description={this.state.description}
         />
+        </div>
+
 
       </div>
     )
