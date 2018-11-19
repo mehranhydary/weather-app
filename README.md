@@ -1,3 +1,7 @@
+## Weather App
+
+This app will allow users enter their city and country and get the weather for that region
+
 ### Instructions
 
 1. Please clone this application
